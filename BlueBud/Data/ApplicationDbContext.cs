@@ -1,4 +1,4 @@
-﻿using System.Drawing.Drawing2D;
+using System.Drawing.Drawing2D;
 using BlueBud.Controllers;
 using BlueBud.Models;
 using Microsoft.AspNetCore.Identity;
@@ -16,11 +16,12 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationDbContext.BlueB
     }
 
 
-    public DbSet<ChargerLocations> ChargerLocation{ get; set; }
+    public DbSet<Models.ChargerLocations> ChargerLocation{ get; set; }
     public class BlueBudUser: IdentityUser
     {
         public string FullName { get; set; }
         public string CarType { get; set; }
     }
+    public DbSet<BlueBud.Models.CarTypeList> CarTypeList { get; set; } = default!;
     
 }

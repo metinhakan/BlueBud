@@ -35,6 +35,11 @@
 
     <ItemGroup>
       <_ContentIncludedByDefault Remove="Views\MainPage\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ChargerLocations\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ChargerLocations\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ChargerLocations\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ChargerLocations\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ChargerLocations\Index.cshtml" />
     </ItemGroup>
 
     <ItemGroup>

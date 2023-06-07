@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace BlueBud.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ApplicationDbContext dbContext;
+    
     
     private readonly ILogger<HomeController> _logger;
 
@@ -44,6 +46,14 @@ public class HomeController : Controller
     {
         return View();
     }
+    
+    [Authorize]
+    public IActionResult Account()
+    {
+        return View();
+    }
+
+   
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

@@ -174,6 +174,30 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/metin/Desktop/EV/BlueBud/BlueBud/Views/ChargerLocations/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2hhcmdlckxvY2F0aW9ucy9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/metin/Desktop/EV/BlueBud/BlueBud/Views/ChargerLocations/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2hhcmdlckxvY2F0aW9ucy9EZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/metin/Desktop/EV/BlueBud/BlueBud/Views/ChargerLocations/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2hhcmdlckxvY2F0aW9ucy9EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/metin/Desktop/EV/BlueBud/BlueBud/Views/ChargerLocations/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2hhcmdlckxvY2F0aW9ucy9FZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/metin/Desktop/EV/BlueBud/BlueBud/Views/ChargerLocations/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2hhcmdlckxvY2F0aW9ucy9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/metin/Desktop/EV/BlueBud/BlueBud/Views/Home/Account.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BY2NvdW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/metin/Desktop/EV/BlueBud/BlueBud/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
