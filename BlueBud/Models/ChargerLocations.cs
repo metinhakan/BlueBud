@@ -22,6 +22,9 @@ public class ChargerLocations
     
     public string ChargerRenter { get; set; }
     
+    public string Favorite { get; set; }
+    
+    
 
     public List<ApplicationDbContext.BlueBudUser> BlueBudUsers { get; set; }
  

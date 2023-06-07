@@ -29,8 +29,11 @@
                     <div class="card-body">
                         <h5 class="card-title">@charger.ChargerName</h5>
                         <h6 class="card-subtitle mb-2 text-muted">@charger.ChargerType</h6>
-                        <a asp-controller="ChargerLocations" asp-action="ReserveCancel" asp-route-id="@charger.Id"> <button id="updatebutton" type="button" class="btn btn-danger">Reserve</button></a>
-
+                        <a asp-controller="ChargerLocations" asp-action="ReserveCancel" asp-route-id="@charger.Id"> <button id="updatebutton" type="button" class="btn btn-danger">Cancel Reservation</button></a>
+ @if (charger.Favorite != User.Identity.Name)
+                       {<a asp-controller="ChargerLocations"  asp-action="AddFavorite" asp-route-id="@charger.Id" > <button id="updatebutton" type="button" class="btn btn-success">Add to Favorites</button></a>
+                           
+                       } 
                     </div>
                 </div>
             }

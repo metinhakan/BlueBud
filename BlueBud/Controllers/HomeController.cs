@@ -72,6 +72,10 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+
+    
+    
+    
     
     [Authorize]
     public IActionResult Reservations()
@@ -102,6 +106,43 @@ public class HomeController : Controller
             
                 
             return View(reservedChargers);
+        }
+        
+    }
+    
+    [Authorize]
+    public IActionResult Favorites()
+    {
+       
+        if (User.Identity.IsAuthenticated)
+        {
+            isAuthenticated = true;
+        }
+
+        else
+        {
+            isAuthenticated = false;
+        }
+
+        ViewBag.IsAut = isAuthenticated;
+        
+        var options = new DbContextOptionsBuilder<ApplicationDbContext>()
+            .UseSqlServer("Server=(local);Database=FinalProjectDB1;User ID=sa;Password=Aa123456;MultipleActiveResultSets=true;Trust Server Certificate = true")
+            .Options;
+
+
+        
+        using (var dbContext = new ApplicationDbContext(options))
+        {
+           
+                List<ChargerLocations> favChargers =
+                    dbContext.ChargerLocation.Where(p => p.Favorite == User.Identity.Name).ToList();
+                return View(favChargers);
+            
+            
+            
+                
+            
         }
         
     }

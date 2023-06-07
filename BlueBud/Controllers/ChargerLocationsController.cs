@@ -21,6 +21,43 @@ namespace BlueBud.Controllers
         }
 
         // GET: ChargerLocations
+        public IActionResult AddFavorite(int id)
+        {
+          
+            var charger = _context.ChargerLocation.Find(id);
+            if (charger != null && charger.Favorite == "")
+            {
+                charger.Favorite = User.Identity.Name;
+                _context.SaveChanges();
+            }
+            else
+            {
+                return Json(new { error = "Someone else favorite this charger before you" });
+            }
+
+            return RedirectToAction("Index", "Home");
+        }  
+        
+        public IActionResult RemoveFav(int id)
+        {
+
+            var charger = _context.ChargerLocation.Find(id);
+            charger.Favorite = "";
+            if (charger != null)
+            {
+                _context.SaveChanges();
+            }
+            else
+            {
+                return Json(new{showPopup = true});
+
+            }
+
+            return RedirectToAction("Index", "Home");
+        }  
+        
+        
+        
         public IActionResult Reserve(int id)
         {
 
