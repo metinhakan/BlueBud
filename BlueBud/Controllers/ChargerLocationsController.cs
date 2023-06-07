@@ -25,12 +25,26 @@ namespace BlueBud.Controllers
             var charger = _context.ChargerLocation.Find(id);
             if (charger != null)
             {
+
                 charger.OccupationStatus = 1;
                 _context.SaveChanges();
             }
 
             return RedirectToAction("Index", "Home");
         }    
+        
+        public IActionResult ReserveCancel(int id)
+        {
+            var charger = _context.ChargerLocation.Find(id);
+            if (charger != null)
+            {
+
+                charger.OccupationStatus = 0;
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("Index", "Home");
+        }   
         
         public async Task<IActionResult> Index()
         {

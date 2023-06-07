@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "et+2/z6RhP3L/IkCFMMuS/zyg8vNO5wArqVKBdecpUs=",
+  "Hash": "GMdxstniM8BlcKRiHhAItosYZyMiaiHYbHwr/2yrsdE=",
   "Source": "BlueBud",
   "BasePath": "_content/BlueBud",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.ico"
+    },
+    {
+      "Identity": "/Users/metin/Desktop/EV/BlueBud/BlueBud/wwwroot/js/map.js",
+      "SourceId": "BlueBud",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/metin/Desktop/EV/BlueBud/BlueBud/wwwroot/",
+      "BasePath": "_content/BlueBud",
+      "RelativePath": "js/map.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/map.js"
     },
     {
       "Identity": "/Users/metin/Desktop/EV/BlueBud/BlueBud/wwwroot/js/site.js",

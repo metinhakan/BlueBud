@@ -1,13 +1,16 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using BlueBud.Data
+@using Microsoft.AspNetCore.Mvc.TagHelpers
 @inject SignInManager<ApplicationDbContext.BlueBudUser> SignInManager
 @inject UserManager<ApplicationDbContext.BlueBudUser> UserManager
+
 
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
     {
+       
         <l class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index" title="Manage">Hello @User.Identity.Name </a>
         </l>
         <li class="nav-item">
             <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">

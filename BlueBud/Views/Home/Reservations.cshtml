@@ -1,4 +1,9 @@
-﻿
+
+@{
+    ViewBag.Title = "Reservastion";
+    Layout = "_Layout";
+}
+
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -6,14 +11,11 @@
 @inject Microsoft.Extensions.Configuration.IConfiguration Configuration
 
 
-@{
-    ViewData["Title"] = "Home Page";
-}
 
 
 
 <div class="row"> <div class="col-md-6">
-        <h3> The avaliable Blue Buds </h3>
+        <h3> The reserved Blue Buds </h3>
         @using BlueBud.Data        
 @using Microsoft.AspNetCore.Identity
 @model List<ChargerLocations>
@@ -24,7 +26,7 @@
                     <div class="card-body">
                         <h5 class="card-title">@charger.ChargerName</h5>
                         <h6 class="card-subtitle mb-2 text-muted">@charger.ChargerType</h6>
-                        <a asp-controller="ChargerLocations"  asp-action="Reserve" asp-route-id="@charger.Id" > <button id="updatebutton" type="button" class="btn btn-success">Reserve</button></a>
+                        <a asp-controller="ChargerLocations"  asp-action="ReserveCancel" asp-route-id="@charger.Id" > <button id="updatebutton" type="button" class="btn btn-danger">Reserve</button></a>
                       
                     </div>
                 </div>
@@ -34,11 +36,12 @@
     </div>
 
 
-    <div class="col-md-6" id="map" style="width: 400px; height:600px;">
+
         
         
     </div>
     
-</div>
+
+
 <script src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBxinbaf5oXt9Jjy_gpqbXbsPfI-fQBztY" async defer></script>
 <script src = "path/to/map.js"></script>

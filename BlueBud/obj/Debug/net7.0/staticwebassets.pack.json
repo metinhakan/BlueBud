@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
+      "Id": "/Users/metin/Desktop/EV/BlueBud/BlueBud/wwwroot/js/map.js",
+      "PackagePath": "staticwebassets/js/map.js"
+    },
+    {
       "Id": "/Users/metin/Desktop/EV/BlueBud/BlueBud/wwwroot/js/site.js",
       "PackagePath": "staticwebassets/js/site.js"
     },

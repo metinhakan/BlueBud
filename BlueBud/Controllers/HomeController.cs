@@ -11,6 +11,7 @@ namespace BlueBud.Controllers;
 
 public class HomeController : Controller
 {
+    public bool isAuthenticated;
     private readonly ApplicationDbContext dbContext;
     
     
@@ -27,8 +28,19 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         
+        if (User.Identity.IsAuthenticated)
+        {
+             isAuthenticated = true;
+        }
+
+        else
+        {
+            isAuthenticated = false;
+        }
+
+        ViewBag.IsAut = isAuthenticated;
         var options = new DbContextOptionsBuilder<ApplicationDbContext>()
-            .UseSqlServer("Server=(local);Database=BlueBuddy;User ID=sa;Password=Aa123456;MultipleActiveResultSets=true;Trust Server Certificate = true")
+            .UseSqlServer("Server=(local);Database=FinalProjectDB1;User ID=sa;Password=Aa123456;MultipleActiveResultSets=true;Trust Server Certificate = true")
             .Options;
 
 
@@ -47,7 +59,7 @@ public class HomeController : Controller
         return View();
     }
     
-    [Authorize]
+
     public IActionResult Account()
     {
         return View();
@@ -61,8 +73,35 @@ public class HomeController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
     
-    
+    [Authorize]
+    public IActionResult Reservations()
+    {
+        if (User.Identity.IsAuthenticated)
+        {
+            isAuthenticated = true;
+        }
 
+        else
+        {
+            isAuthenticated = false;
+        }
+
+        ViewBag.IsAut = isAuthenticated;
+        
+        var options = new DbContextOptionsBuilder<ApplicationDbContext>()
+            .UseSqlServer("Server=(local);Database=FinalProjectDB1;User ID=sa;Password=Aa123456;MultipleActiveResultSets=true;Trust Server Certificate = true")
+            .Options;
+
+
+        
+        using (var dbContext = new ApplicationDbContext(options))
+        {
+            List<ChargerLocations> reservedChargers =
+                dbContext.ChargerLocation.Where(p => p.OccupationStatus == 1 ).Take(4).ToList();
+            return View(reservedChargers);
+        }
+        
+    }
     
 
 }

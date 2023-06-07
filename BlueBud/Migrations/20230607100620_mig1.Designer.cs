@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlueBud.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230606220054_mi1")]
-    partial class mi1
+    [Migration("20230607100620_mig1")]
+    partial class mig1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,6 +36,9 @@ namespace BlueBud.Migrations
                     b.Property<string>("CarType")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ChargerLocationsId")
+                        .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -87,6 +90,8 @@ namespace BlueBud.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ChargerLocationsId");
+
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
 
@@ -98,6 +103,23 @@ namespace BlueBud.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("BlueBud.Models.CarTypeList", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CarType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CarTypeList");
+                });
+
             modelBuilder.Entity("BlueBud.Models.ChargerLocations", b =>
                 {
                     b.Property<int>("Id")
@@ -106,7 +128,11 @@ namespace BlueBud.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Address")
+                    b.Property<string>("ChargerName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ChargerType")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -115,6 +141,12 @@ namespace BlueBud.Migrations
 
                     b.Property<double>("Longitude")
                         .HasColumnType("float");
+
+                    b.Property<int>("OccupationStatus")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -258,6 +290,13 @@ namespace BlueBud.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("BlueBud.Data.ApplicationDbContext+BlueBudUser", b =>
+                {
+                    b.HasOne("BlueBud.Models.ChargerLocations", null)
+                        .WithMany("BlueBudUsers")
+                        .HasForeignKey("ChargerLocationsId");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -307,6 +346,11 @@ namespace BlueBud.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("BlueBud.Models.ChargerLocations", b =>
+                {
+                    b.Navigation("BlueBudUsers");
                 });
 #pragma warning restore 612, 618
         }
