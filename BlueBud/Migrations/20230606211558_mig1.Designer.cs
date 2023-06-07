@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlueBud.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230606120402_mi1")]
-    partial class mi1
+    [Migration("20230606211558_mig1")]
+    partial class mig1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

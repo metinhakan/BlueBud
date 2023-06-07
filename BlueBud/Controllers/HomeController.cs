@@ -2,12 +2,16 @@
 using BlueBud.Data;
 using Microsoft.AspNetCore.Mvc;
 using BlueBud.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace BlueBud.Controllers;
 
 public class HomeController : Controller
 {
+    private readonly ApplicationDbContext dbContext;
+    
     private readonly ILogger<HomeController> _logger;
 
     public HomeController(ILogger<HomeController> logger)
@@ -15,10 +19,25 @@ public class HomeController : Controller
         _logger = logger;
     }
 
+    
+
+    [Authorize]
     public IActionResult Index()
     {
         
-        return View();
+        var options = new DbContextOptionsBuilder<ApplicationDbContext>()
+            .UseSqlServer("Server=(local);Database=BlueBuddy;User ID=sa;Password=Aa123456;MultipleActiveResultSets=true;Trust Server Certificate = true")
+            .Options;
+
+
+        
+        using (var dbContext = new ApplicationDbContext(options))
+        {
+            List<ChargerLocations> top5Charger =
+                dbContext.ChargerLocation.Where(p => p.OccupationStatus == 0 ).Take(4).ToList();
+            return View(top5Charger);
+        }
+        
     }
 
     public IActionResult Privacy()
@@ -31,6 +50,8 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+    
+    
 
     
 

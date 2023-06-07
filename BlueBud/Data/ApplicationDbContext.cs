@@ -1,9 +1,12 @@
 ﻿using System.Drawing.Drawing2D;
+using BlueBud.Controllers;
+using BlueBud.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace BlueBud.Data;
+
 
 public class ApplicationDbContext : IdentityDbContext<ApplicationDbContext.BlueBudUser>
 {
@@ -13,7 +16,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationDbContext.BlueB
     }
 
 
-    
+    public DbSet<ChargerLocations> ChargerLocation{ get; set; }
     public class BlueBudUser: IdentityUser
     {
         public string FullName { get; set; }

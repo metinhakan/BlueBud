@@ -33,4 +33,12 @@
       <Folder Include="Images" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\MainPage\Index.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Views\MainPage\Index.cshtml" />
+    </ItemGroup>
+
 </Project>
