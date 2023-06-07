@@ -48,7 +48,7 @@ public class HomeController : Controller
         using (var dbContext = new ApplicationDbContext(options))
         {
             List<ChargerLocations> top5Charger =
-                dbContext.ChargerLocation.Where(p => p.OccupationStatus == 0 ).Take(4).ToList();
+                dbContext.ChargerLocation.Where(p => p.OccupationStatus == 0).Take(4).ToList();
             return View(top5Charger);
         }
         
@@ -76,6 +76,7 @@ public class HomeController : Controller
     [Authorize]
     public IActionResult Reservations()
     {
+       
         if (User.Identity.IsAuthenticated)
         {
             isAuthenticated = true;
@@ -97,11 +98,14 @@ public class HomeController : Controller
         using (var dbContext = new ApplicationDbContext(options))
         {
             List<ChargerLocations> reservedChargers =
-                dbContext.ChargerLocation.Where(p => p.OccupationStatus == 1 ).Take(4).ToList();
+                dbContext.ChargerLocation.Where(p => p.OccupationStatus == 1 && p.ChargerRenter == User.Identity.Name).Take(4).ToList();
+            
+                
             return View(reservedChargers);
         }
         
     }
+    
     
 
 }

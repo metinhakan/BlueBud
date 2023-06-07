@@ -19,15 +19,18 @@
         @using BlueBud.Data        
 @using Microsoft.AspNetCore.Identity
 @model List<ChargerLocations>
+ 
         <ul>
+            
+            
             @foreach (var charger in Model)
             {
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">@charger.ChargerName</h5>
                         <h6 class="card-subtitle mb-2 text-muted">@charger.ChargerType</h6>
-                        <a asp-controller="ChargerLocations"  asp-action="ReserveCancel" asp-route-id="@charger.Id" > <button id="updatebutton" type="button" class="btn btn-danger">Reserve</button></a>
-                      
+                        <a asp-controller="ChargerLocations" asp-action="ReserveCancel" asp-route-id="@charger.Id"> <button id="updatebutton" type="button" class="btn btn-danger">Reserve</button></a>
+
                     </div>
                 </div>
             }

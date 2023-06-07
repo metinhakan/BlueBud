@@ -40,6 +40,11 @@
       <_ContentIncludedByDefault Remove="Views\ChargerLocations\Details.cshtml" />
       <_ContentIncludedByDefault Remove="Views\ChargerLocations\Edit.cshtml" />
       <_ContentIncludedByDefault Remove="Views\ChargerLocations\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ReserveRecord\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ReserveRecord\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ReserveRecord\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ReserveRecord\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\ReserveRecord\Index.cshtml" />
     </ItemGroup>
 
     <ItemGroup>

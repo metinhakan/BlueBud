@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BlueBud.Data;
 using BlueBud.Models;
+using Microsoft.Data.SqlClient;
 
 namespace BlueBud.Controllers
 {
@@ -22,10 +23,15 @@ namespace BlueBud.Controllers
         // GET: ChargerLocations
         public IActionResult Reserve(int id)
         {
+
+
+
+
             var charger = _context.ChargerLocation.Find(id);
+            charger.ChargerRenter = User.Identity.Name;
             if (charger != null)
             {
-
+               
                 charger.OccupationStatus = 1;
                 _context.SaveChanges();
             }
@@ -35,10 +41,11 @@ namespace BlueBud.Controllers
         
         public IActionResult ReserveCancel(int id)
         {
+            
             var charger = _context.ChargerLocation.Find(id);
             if (charger != null)
             {
-
+                charger.ChargerRenter = "";
                 charger.OccupationStatus = 0;
                 _context.SaveChanges();
             }

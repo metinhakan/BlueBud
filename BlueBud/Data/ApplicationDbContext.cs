@@ -24,6 +24,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationDbContext.BlueB
         public string CarType { get; set; }
     }
     public DbSet<BlueBud.Models.CarTypeList> CarTypeList { get; set; } = default!;
-   
-    
+
+
+
 }

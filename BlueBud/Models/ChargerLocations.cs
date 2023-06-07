@@ -1,5 +1,6 @@
 
 
+using BlueBud.Controllers;
 using BlueBud.Data;
 
 namespace BlueBud.Models;
@@ -19,7 +20,9 @@ public class ChargerLocations
     
     public string ChargerType { get; set; }
     
+    public string ChargerRenter { get; set; }
     
-    public List<ApplicationDbContext.BlueBudUser> BlueBudUsers { get; set; }
 
+    public List<ApplicationDbContext.BlueBudUser> BlueBudUsers { get; set; }
+ 
 }
